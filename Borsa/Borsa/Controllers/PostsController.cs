@@ -4,14 +4,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Borsa.Controllers
 {
-        [Route("Api/[Controller]")]
+        [Route("Api/posts")]
         [ApiController]
-    public class PostsController : Controller
+    public class PostsController : ControllerBase
     {
-        public class PostsControlle : ControllerBase
-        {
+      
             private readonly IPostsService _postsService;
-            public PostsControlle(IPostsService postsService)
+            public PostsController(IPostsService postsService)
             {
                  _postsService = postsService;
             }
@@ -23,7 +22,7 @@ namespace Borsa.Controllers
                 { return NotFound(); }
                 return Ok(post);
             }
-        }
+        
 
     }
 }
